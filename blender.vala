@@ -52,7 +52,8 @@ class GLTest {
         glPushMatrix();
         glTranslatef(-0.3f, -0.3f, 0.0f);
         glRotatef(angle1, 1.0f, 5.0f, 0.0f);
-        glCallList(1);        /* render ico display list */
+        glutSolidIcosahedron();
+        //glCallList(1);        /* render ico display list */
         glPopMatrix();
 
         glClear(GL_DEPTH_BUFFER_BIT);
@@ -65,7 +66,8 @@ class GLTest {
         glPushMatrix();
         glTranslatef(0.3f, 0.3f, 0.0f);
         glRotatef(angle2, 1.0f, 0.0f, 5.0f);
-        glCallList(1);        /* render ico display list */
+        glutSolidIcosahedron();
+        //glCallList(1);        /* render ico display list */
         glPopMatrix();
 
         glPushAttrib(GL_ENABLE_BIT);
@@ -108,32 +110,26 @@ class GLTest {
     }
 
     public static int main(string[] args) {
-        print("1\n");
         int argc = args.length;
         glutInit(ref argc, args);
-        print("1\n");
 
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
         glutCreateWindow("blender");
         glutDisplayFunc(display);
         glutVisibilityFunc(visible);
 
-        print("1\n");
-        glNewList(1, GL_COMPILE);  /* create ico display list */
-        glutSolidIcosahedron();
-        glEndList();
+        //glNewList(1, GL_COMPILE);  /* create ico display list */
+        //glutSolidIcosahedron();
+        //glEndList();
 
-        print("1\n");
         glEnable(GL_LIGHTING);
         glEnable(GL_LIGHT0);
-        print("1\n");
         /*glLightfv(GL_LIGHT0, GL_AMBIENT, light0_ambient);
         glLightfv(GL_LIGHT0, GL_DIFFUSE, light0_diffuse);
         glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
         glLightfv(GL_LIGHT1, GL_POSITION, light1_position);
         glLightfv(GL_LIGHT2, GL_DIFFUSE, light2_diffuse);
         glLightfv(GL_LIGHT2, GL_POSITION, light2_position);*/
-        print("1\n");
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_CULL_FACE);
         glEnable(GL_BLEND);
@@ -141,7 +137,6 @@ class GLTest {
         glEnable(GL_LINE_SMOOTH);
         glLineWidth(2.0f);
 
-        print("1\n");
         glMatrixMode(GL_PROJECTION);
         gluPerspective( /* field of view in degree */ 40.0f,
                         /* aspect ratio */ 1.0f,
@@ -152,7 +147,6 @@ class GLTest {
                   0.0f, 1.0f, 0.0f); /* up is in positive Y direction */
         glTranslatef(0.0f, 0.6f, -1.0f);
 
-        print("1\n");
         glutMainLoop();
         return 0;             /* ANSI C requires main to return int. */
     }
