@@ -75,6 +75,13 @@ public class Example : Object {
                 glRotatef (alpha, 1.0f, 0.0f, 0.0f);
                 glRotatef (beta, 0.0f, 1.0f, 0.0f);
 
+                glEnable(GL_COLOR_MATERIAL);
+
+                glColor4f((GLclampf)preferences.ColorDibujo.R,
+                          (GLclampf)preferences.ColorDibujo.G,
+                          (GLclampf)preferences.ColorDibujo.B,
+                          (GLclampf)preferences.ColorDibujo.A);
+
                 if (preferences.Axes == EAxes.AXESSIMPLE) {
                         glBegin (GL_LINES);
                                 glVertex3f (0.0f, 0.0f, 0.0f);
