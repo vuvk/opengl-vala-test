@@ -1,2 +1,0 @@
-#!/bin/bash
-valac blender.vala --vapidir=vapi/ --pkg=glib-2.0 --pkg=gobject-2.0 --pkg=gl --pkg=glu --pkg=glut -X -lm

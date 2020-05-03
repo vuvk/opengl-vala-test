@@ -1,0 +1,2 @@
+#!/bin/bash
+valac --vapidir vapi --pkg gl --pkg glu --pkg glut -X -lm -X -lGL -X -lGLU -X -lglut teapot.vala
